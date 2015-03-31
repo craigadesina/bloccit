@@ -22,6 +22,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'faker'
 
+gem 'devise'
+
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'autoprefixer-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
