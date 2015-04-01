@@ -15,6 +15,10 @@ skip_before_action :flash_attack, only: [:index, :new]
   def new
     @post = Post.new
   end
+
+  def create
+  @post = current_user.posts.build(params.require(:post).permit(:title, :body))
+  end
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(params.require(:post).permit(:title, :body))
@@ -28,6 +32,4 @@ skip_before_action :flash_attack, only: [:index, :new]
   def edit
     @post = Post.find(params[:id])
   end
-
-  
 end
