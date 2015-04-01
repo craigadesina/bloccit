@@ -18,4 +18,5 @@ class ApplicationController < ActionController::Base
   def flash_attack
      flash.now[:notice] = "I'm pissing down your pants"
    end
+
 end
