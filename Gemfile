@@ -24,6 +24,8 @@ gem 'faker'
 
 gem 'devise'
 
+gem 'figaro', '1.0'
+
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'autoprefixer-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
