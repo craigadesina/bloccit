@@ -19,9 +19,8 @@ skip_before_action :flash_attack, only: [:index, :new]
   end
 
   def create
+    @post = current_user.posts.build(params.require(:post).permit(:title, :body))
     authorize @post
-  @post = current_user.posts.build(params.require(:post).permit(:title, :body))
-  authorize @post
        if @post.save
        flash[:notice] = "Post was saved."
        redirect_to @post
@@ -31,8 +30,8 @@ skip_before_action :flash_attack, only: [:index, :new]
      end
   end
   def update
-    authorize @post
     @post = Post.find(params[:id])
+    authorize @post
     if @post.update_attributes(params.require(:post).permit(:title, :body))
       flash[:notice] = "Post was updated."
       redirect_to @post
@@ -42,7 +41,7 @@ skip_before_action :flash_attack, only: [:index, :new]
     end
   end
   def edit
-    authorize @post
     @post = Post.find(params[:id])
+    authorize @post
   end
 end
