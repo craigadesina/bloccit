@@ -41,7 +41,7 @@ end
 user = User.first
  user.skip_reconfirmation!
  user.update_attributes!(
-   email: 'reckmobile@gmail.com',
+   email: 'jegedeyaloku77@gmail.com',
    password: ENV['SECRET_PASS']
  )
 

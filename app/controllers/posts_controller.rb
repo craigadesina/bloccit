@@ -1,11 +1,9 @@
 class PostsController < ApplicationController
 
-before_action :flash_attack
-
 skip_before_action :flash_attack, only: [:index, :new]
 
  def index
-    @posts = Post.all
+    @posts = policy_scope(Post)
     authorize @posts
   end
 
@@ -19,7 +17,6 @@ skip_before_action :flash_attack, only: [:index, :new]
   end
 
   def create
-    authorize @post
   @post = current_user.posts.build(params.require(:post).permit(:title, :body))
   authorize @post
        if @post.save
