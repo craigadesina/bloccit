@@ -1,0 +1,12 @@
+<p>
+  <strong>Post:</strong>
+  <%= @summary.post.title %>
+</p>
+
+<p>
+  <strong>Post Summary:</strong>
+  <%= @summary.body %>
+</p>
+
+<%= link_to 'Edit', edit_summary_path(@summary) %> |
+<%= link_to 'Back', summaries_path %>
