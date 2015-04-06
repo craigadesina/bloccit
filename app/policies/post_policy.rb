@@ -3,6 +3,18 @@ class PostPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+  if user.present?
+    if user.admin? || user.moderator? || scope.where( user_id: user.id ).exists?
+      true
+    else
+      false
+    end
+  else
+    false
+  end
+end
+
   class Scope
     attr_reader :user, :scope
 
