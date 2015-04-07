@@ -10,6 +10,19 @@
      </div>
    <% end %>
    <%= form_group_tag(post.errors[:title]) do %>
+
+   <% if post.image? %>
+         <div class="form-group">
+           <p>Current post image</p>
+           <%= image_tag( post.image.profile.url ) %>
+         </div>
+       <% end %>
+       <div class="form-group">
+         <%= f.label :image %>
+         <%= f.file_field :image %>
+         <%= f.hidden_field :image_cache %>
+       </div>
+
      <%= f.label :title %>
      <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
    <% end %>
