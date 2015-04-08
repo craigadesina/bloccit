@@ -1,10 +1,8 @@
 class PostsController < ApplicationController
 
-before_action :flash_attack
-
 skip_before_action :flash_attack, only: [:index, :new]
 
- def index
+  def index
     @posts = Post.all
   end
 
@@ -17,7 +15,7 @@ skip_before_action :flash_attack, only: [:index, :new]
   end
 
   def create
-  @post = current_user.posts.build(params.require(:post).permit(:title, :body))
+    @post = current_user.posts.build(params.require(:post).permit(:title, :body))
   end
   def update
     @post = Post.find(params[:id])
