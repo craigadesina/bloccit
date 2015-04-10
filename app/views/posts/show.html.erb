@@ -8,7 +8,9 @@
        <%= @post.user.name %>
   </small>
   <p><%= markdown_to_html @post.body %></p>
+  <% if policy(@post.comments.new).new? %>
   <p><%= render partial: "comments/form", locals: {topic: @topic, post: @post, comment: @post.comments.new} %></p>
+  <% end %>
   <p><%= render partial: 'comments/comment', collection: @post.comments %></p>
   </div>
   <div class="col-md-4">
