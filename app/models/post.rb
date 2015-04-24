@@ -10,7 +10,9 @@ class Post < ActiveRecord::Base
   validates :topic, presence: true
   validates :user, presence: true
 
-  def self.per_page
-    100
+  def per_page(num)
+  num = num.to_i
+  next_pager = pager.at(pager.current_page, num)
+  __new__(next_pager.dataset, pager: next_pager)
   end
 end
