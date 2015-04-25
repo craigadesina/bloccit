@@ -14,6 +14,8 @@ gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'newrelic_rpm'
+gem 'puma', group: :production
+gem 'thin', group: :development
 
 group :production do
    gem 'pg'
