@@ -9,9 +9,13 @@
   </small>
   <p><%= markdown_to_html @post.body %></p>
   <% if policy(@post.comments.new).create? %>
+  <div class='new-comment'>
   <p><%= render partial: "comments/form", locals: {topic: @topic, post: @post, comment: @post.comments.new} %></p>
+  </div>
   <% end %>
+  <div class='js-comments'>
   <p><%= render partial: 'comments/comment', collection: @post.comments %></p>
+  </div>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
