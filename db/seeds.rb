@@ -30,7 +30,7 @@ require 'faker'
  # The `save` method then saves this User to the database.
 
 # Create Posts
-2000.times do
+4000.times do
   Post.create!(
      user:   users.sample,
      topic:  topics.sample,
