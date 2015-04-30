@@ -10,7 +10,4 @@ class Post < ActiveRecord::Base
   validates :topic, presence: true
   validates :user, presence: true
 
-  def self.per_page(num)
-    num
-  end
 end

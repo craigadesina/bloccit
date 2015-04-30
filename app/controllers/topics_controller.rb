@@ -11,9 +11,8 @@ class TopicsController < ApplicationController
   end
 
   def show
-      #num = 100
      @topic = Topic.find(params[:id])
-     @posts = @topic.posts.paginate(page: params[:page], per_page: Post.per_page(100))
+     @posts = @topic.posts.paginate(per_page(100))
      authorize @topic
   end
 
@@ -43,4 +42,9 @@ class TopicsController < ApplicationController
        render :edit
      end
    end
+
+   private
+   def per_page(num)
+    { page: params[:page], per_page: num }
+  end
 end
